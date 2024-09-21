@@ -5,43 +5,52 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Web Reminder</title>
     <link rel="stylesheet" href="dist/tailwind.css">
-    <link href="css/all.min.css" rel="stylesheet">
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        primary: '#0078D7',
-                    }
-                }
-            }
-        }
-    </script>
+    <!-- <link href="css/all.css" rel="stylesheet"> Include FontAwesome for icons if necessary -->
 </head>
-<body class="bg-gray-100">
-    <div class="container mx-auto p-4 max-w-md">
-        <h1 class="text-2xl font-bold text-primary mb-4 flex items-center">
-            <i class="fas fa-bell mr-2"></i> Web Reminder
+<body class="bg-gray-100 min-h-screen flex items-center justify-center p-4">
+    <!-- Main Container -->
+    <div class="container mx-auto max-w-lg bg-white rounded-lg shadow-2xl p-6">
+        <!-- Heading -->
+        <h1 class="text-3xl font-extrabold text-primary mb-6 flex items-center justify-center">
+            <i class="fas fa-bell mr-3"></i> Web Reminder
         </h1>
-        <div class="bg-white rounded-lg shadow-md p-4">
-            <input type="text" id="note-input" placeholder="Enter a note or URL" class="w-full mb-2 p-2 border border-gray-300 rounded">
-            <div class="flex space-x-2 mb-2">
-                <button id="save-note" class="flex-1 bg-primary text-white py-2 px-4 rounded hover:bg-blue-600 transition duration-300">
+
+        <!-- Input Section -->
+        <div class="bg-white rounded-lg p-4 border border-gray-200 shadow-inner">
+            <!-- Note Input -->
+            <input type="text" id="note-input" placeholder="Enter a note or URL" 
+                class="w-full mb-4 p-3 border border-gray-300 rounded focus:outline-none focus:ring focus:ring-primary placeholder-gray-500">
+            
+            <!-- Buttons Section -->
+            <div class="flex space-x-3 mb-4">
+                <button id="save-note" class="primary-btn flex items-center justify-center w-1/2">
                     <i class="fas fa-sticky-note mr-2"></i> Save Note
                 </button>
-                <button id="save-link" class="flex-1 bg-primary text-white py-2 px-4 rounded hover:bg-blue-600 transition duration-300">
+                <button id="save-link" class="primary-btn flex items-center justify-center w-1/2">
                     <i class="fas fa-globe mr-2"></i> Save Current Page
                 </button>
             </div>
-            <input type="datetime-local" id="reminder-time" class="w-full mb-2 p-2 border border-gray-300 rounded">
-            <button id="set-reminder" class="w-full bg-primary text-white py-2 px-4 rounded hover:bg-blue-600 transition duration-300">
+
+            <!-- Date-Time Picker for Reminder -->
+            <input type="datetime-local" id="reminder-time" 
+                class="w-full mb-4 p-3 border border-gray-300 rounded focus:outline-none focus:ring focus:ring-primary">
+
+            <!-- Set Reminder Button -->
+            <button id="set-reminder" class="primary-btn w-full flex items-center justify-center">
                 <i class="far fa-clock mr-2"></i> Set Reminder
             </button>
         </div>
-        <div id="saved-items" class="mt-4 max-h-64 overflow-y-auto">
-            <!-- Saved items will be inserted here by JavaScript -->
+
+        <!-- Saved Items Section -->
+        <div id="saved-items">
+            <!-- Display saved notes or links here -->
+            <p id="no-items-message">No items saved yet. Your saved notes and reminders will appear here.</p>
         </div>
+        
+        
     </div>
-    <script src="script.js"></script>
+
+    <script src="./script.js"></script>
+    <script src="./popup.js"></script>
 </body>
 </html>
